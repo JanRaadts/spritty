@@ -1,7 +1,13 @@
+import Header from "../components/Header/Header";
+import InputForm from "../components/InputForm/InputForm";
+import GlobalStyles from "../GlobalStyles";
+
 export default function HomePage() {
   return (
-    <div>
-      <h1>Hello from Next.js</h1>
-    </div>
+    <>
+      <GlobalStyles />
+      <Header></Header>
+      <InputForm></InputForm>
+    </>
   );
 }
