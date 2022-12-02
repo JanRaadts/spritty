@@ -1,16 +1,18 @@
 import styled from "styled-components";
+import Image from "next/image";
+import logo from "/Users/janraadts/Development/neuefische/spritty/components/Header/logo_spritty.png";
 
 export default function Header() {
   return (
-    <>
-      <StyledTitle>Calculate Trip</StyledTitle>
-    </>
+    <StyledHeader>
+      <Image alt="Logo" src={logo} width={300} />
+    </StyledHeader>
   );
 }
 
-const StyledTitle = styled.h1`
-  text-align: center;
-  color: ::placeholder {
-    color: #11223E;
-  };
+const StyledHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
 `;
