@@ -10,5 +10,7 @@ export default function Header() {
 
 const StyledTitle = styled.h1`
   text-align: center;
-  color: white;
+  color: ::placeholder {
+    color: #11223E;
+  };
 `;
