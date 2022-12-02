@@ -1,34 +1,50 @@
+import { useState } from "react";
 import styled from "styled-components";
 
-export default function InputForm() {
+export default function InputForm({ onData, onResult }) {
+  const [result, setResult] = useState(false);
+
+  function handleData(event) {
+    event.preventDefault();
+    setResult(true);
+    onResult(result);
+    let InputData = {
+      anzPers: event.target.elements.AnzPers.value,
+      anzKm: event.target.elements.AnzKm.value,
+      preis: event.target.elements.preis.value,
+      verbrauch: event.target.elements.AnzVerbrauch.value,
+    };
+    onData(InputData);
+  }
+
   return (
     <>
-      <StyledForm>
+      <StyledForm onSubmit={handleData}>
         <StyledInput
           placeholder="Anzahl Personen"
-          type="text"
+          type="number"
           name="AnzPers"
           required
         ></StyledInput>
         <StyledInput
           placeholder="Anzahl Km"
-          type="text"
-          name="AnzPers"
+          type="number"
+          name="AnzKm"
           required
         ></StyledInput>
         <StyledInput
           placeholder="Preis pro Liter"
-          type="text"
-          name="AnzPers"
+          type="number"
+          name="preis"
           required
         ></StyledInput>
         <StyledInput
           placeholder="Verbrauch auf 100km"
-          type="text"
-          name="AnzPers"
+          type="number"
+          name="AnzVerbrauch"
           required
         ></StyledInput>
-        <StyledButton>Calculate</StyledButton>
+        <StyledButton type="submit">Calculate</StyledButton>
       </StyledForm>
     </>
   );
@@ -47,9 +63,14 @@ const StyledInput = styled.input`
   margin-right: 20px;
   padding: 20px;
   border-radius: 23px;
-  border: 3px #ff7b60 solid;
+
+  border: 3px #11223e solid;
   font-size: 24px;
   text-align: center;
+  filter: drop-shadow(0.5px 0.5px 2px rgba(0, 0, 0, 0.25));
+  ::placeholder {
+    color: #4b4949;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -59,9 +80,10 @@ const StyledButton = styled.button`
   margin-right: 20px;
   padding: 20px;
   border-radius: 35px;
-  border: 3px #ff7b60 solid;
+  border: 3px #11223e solid;
   font-size: 24px;
   text-align: center;
-  background-color: #ff7b60;
+  background-color: #11223e;
   color: white;
+  filter: drop-shadow(0.5px 0.5px 2px black);
 `;
