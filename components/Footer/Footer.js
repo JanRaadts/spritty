@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
-import add from "/Users/janraadts/Development/neuefische/spritty/components/Footer/fluent_save-copy-24-regular.png";
-import bib from "/Users/janraadts/Development/neuefische/spritty/components/Footer/bib.png";
+import add from "/components/Footer/fluent_save-copy-24-regular.png";
+import bib from "/components/Footer/bib.png";
 
 export default function Footer({ onResult }) {
   function showCalc() {
