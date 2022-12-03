@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
-import logo from "/Users/janraadts/Development/neuefische/spritty/components/Header/logo_spritty.png";
+import logo from "/components/Header/logo_spritty.png";
 
 export default function Header() {
   return (
@@ -14,5 +14,5 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120px;
+  height: 10px;
 `;

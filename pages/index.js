@@ -35,15 +35,3 @@ export default function HomePage() {
     </>
   );
 }
-
-// (
-//   calcResults.map((result) => {
-//     <Results
-//       aPers={result.anzPers}
-//       aKm={result.anzKm}
-//       pLiter={result.preis}
-//       verbrauch={result.verbrauch}
-//       id={result.id}
-//     />;
-//   })
-// )
