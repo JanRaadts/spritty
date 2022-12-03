@@ -1,7 +1,23 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
+import Image from "next/image";
+import mehrBtn from "/components/InputForm/mehrBtn.png";
+import zurück from "/components/InputForm/abbruch.png";
+import hinzufügen from "/components/InputForm/hinzufügen.png";
 
 export default function InputForm({ onData, onResult }) {
+  const [moreBtn, setMoreBtn] = useState(false);
+  console.log(moreBtn);
+
+  function handleMehrBtn() {
+    setMoreBtn(true);
+  }
+
+  function onAdd() {
+    setMoreBtn(false);
+  }
+
   function handleData(event) {
     event.preventDefault();
 
@@ -18,37 +34,91 @@ export default function InputForm({ onData, onResult }) {
 
   return (
     <>
-      <StyledForm onSubmit={handleData}>
-        <StyledInput
-          placeholder="Anzahl Personen"
-          type="number"
-          name="AnzPers"
-          required
-        ></StyledInput>
-        <StyledInput
-          placeholder="Anzahl Km"
-          type="number"
-          name="AnzKm"
-          required
-        ></StyledInput>
-        <StyledInput
-          placeholder="Preis pro Liter"
-          type="number"
-          name="preis"
-          step="0.1000"
-          required
-        ></StyledInput>
-        <StyledInput
-          placeholder="Verbrauch auf 100km"
-          type="number"
-          name="AnzVerbrauch"
-          required
-        ></StyledInput>
-        <StyledButton type="submit">Calculate</StyledButton>
-      </StyledForm>
+      {moreBtn ? (
+        <StyledForm onSubmit={handleData}>
+          <StyledInput
+            placeholder="Name"
+            type="number"
+            name="AnzPers"
+            required
+          ></StyledInput>
+          <StyledInput
+            placeholder="Anzahl km"
+            type="number"
+            name="AnzVerbrauch"
+            required
+          ></StyledInput>
+          <StyledBtnSection>
+            <Image
+              src={zurück}
+              alt="zurück"
+              width={40}
+              height={40}
+              onClick={onAdd}
+            />
+            <Image
+              src={hinzufügen}
+              alt="zurück"
+              width={45}
+              height={40}
+              onClick={onAdd}
+            />
+          </StyledBtnSection>
+        </StyledForm>
+      ) : (
+        <StyledForm onSubmit={handleData}>
+          <StyledInput
+            placeholder="Anzahl Personen"
+            type="number"
+            name="AnzPers"
+            required
+          ></StyledInput>
+          <StyledImage>
+            <Image
+              onClick={handleMehrBtn}
+              src={mehrBtn}
+              alt="mehrBtn"
+              width={10}
+              height={41}
+            />
+          </StyledImage>
+          <StyledInput
+            placeholder="Anzahl Km"
+            type="number"
+            name="AnzKm"
+            required
+          ></StyledInput>
+          <StyledInput
+            placeholder="Preis pro Liter"
+            type="number"
+            name="preis"
+            step="0.1000"
+            required
+          ></StyledInput>
+          <StyledInput
+            placeholder="Verbrauch auf 100km"
+            type="number"
+            name="AnzVerbrauch"
+            required
+          ></StyledInput>
+          <StyledButton type="submit">Calculate</StyledButton>
+        </StyledForm>
+      )}
     </>
   );
 }
+
+const StyledBtnSection = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+`;
+
+const StyledImage = styled.div`
+  position: absolute;
+  right: 40px;
+  top: 165px;
+`;
 
 const StyledForm = styled.form`
   display: flex;

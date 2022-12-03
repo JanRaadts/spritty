@@ -7,6 +7,7 @@ import Results from "../components/Results/Results";
 
 export default function HomePage() {
   const [resultOrCalc, setResultOrCalc] = useState(false);
+
   const [calcResults, setCalcResults] = useState([]);
   console.log(calcResults);
 
