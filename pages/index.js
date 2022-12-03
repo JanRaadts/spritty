@@ -26,12 +26,19 @@ export default function HomePage() {
             aKm={result.anzKm}
             pLiter={result.preis}
             verbrauch={result.verbrauch}
+            name={result.name}
+            teilstrecke={result.teilstrecke}
             key={result.id}
           />
         ))
       ) : (
         <InputForm onData={handleData} onResult={setResultOrCalc} />
       )}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Footer onResult={setResultOrCalc} />
     </>
   );
