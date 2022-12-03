@@ -1,18 +1,17 @@
-import { useState } from "react";
 import styled from "styled-components";
+import { nanoid } from "nanoid";
 
 export default function InputForm({ onData, onResult }) {
-  const [result, setResult] = useState(false);
-
   function handleData(event) {
     event.preventDefault();
-    setResult(true);
-    onResult(result);
+
+    onResult(true);
     let InputData = {
-      anzPers: event.target.elements.AnzPers.value,
-      anzKm: event.target.elements.AnzKm.value,
-      preis: event.target.elements.preis.value,
-      verbrauch: event.target.elements.AnzVerbrauch.value,
+      id: nanoid(),
+      anzPers: Number(event.target.elements.AnzPers.value),
+      anzKm: Number(event.target.elements.AnzKm.value),
+      preis: Number(event.target.elements.preis.value),
+      verbrauch: Number(event.target.elements.AnzVerbrauch.value),
     };
     onData(InputData);
   }
@@ -36,6 +35,7 @@ export default function InputForm({ onData, onResult }) {
           placeholder="Preis pro Liter"
           type="number"
           name="preis"
+          step="0.1000"
           required
         ></StyledInput>
         <StyledInput
