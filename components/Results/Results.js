@@ -1,11 +1,39 @@
 import styled from "styled-components";
 
-export default function Results({ aPers, aKm, pLiter, verbrauch, id }) {
-  const result = ((verbrauch / 100) * aKm * pLiter) / aPers;
+export default function Results({
+  aPers,
+  aKm,
+  pLiter,
+  verbrauch,
+  name,
+  teilstrecke,
+  id,
+}) {
+  const Personen = teilstrecke > 0 ? aPers - 1 : aPers;
+
+  const Teilstrecke = teilstrecke > 0 ? teilstrecke : 0;
+
+  const preisProKm = (verbrauch / 100) * pLiter;
+
+  const einer = (preisProKm * teilstrecke) / aPers;
+
+  const PreisEiner = teilstrecke > 0 ? einer : 0;
+
+  const alle = (preisProKm * (aKm - Teilstrecke)) / Personen + PreisEiner;
+
+  const resultEiner = einer.toFixed(2);
+  const resultAlle = alle.toFixed(2);
+
   return (
     <>
       <StyledResult>
-        <StyledText>{result}€ pro Person</StyledText>
+        {teilstrecke > 0 ? (
+          <StyledText>
+            {name}: {resultEiner}€ <br /> Alle anderen: {resultAlle}€
+          </StyledText>
+        ) : (
+          <StyledText>{resultAlle}€ pro Person</StyledText>
+        )}
       </StyledResult>
     </>
   );
