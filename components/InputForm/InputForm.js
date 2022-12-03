@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import Image from "next/image";
 import mehrBtn from "/components/InputForm/mehrBtn.png";
 import zurück from "/components/InputForm/delete.png";
+import more from "/components/InputForm/moreBtn.png";
 
 export default function InputForm({ onData, onResult }) {
   const [moreBtn, setMoreBtn] = useState(false);
@@ -64,10 +65,10 @@ export default function InputForm({ onData, onResult }) {
           <StyledImage>
             <Image
               onClick={handleMehrBtn}
-              src={mehrBtn}
+              src={more}
               alt="mehrBtn"
-              width={10}
-              height={41}
+              width={40}
+              height={40}
             />
           </StyledImage>
 
@@ -135,10 +136,10 @@ export default function InputForm({ onData, onResult }) {
           <StyledImage>
             <Image
               onClick={handleMehrBtn}
-              src={mehrBtn}
+              src={more}
               alt="mehrBtn"
-              width={10}
-              height={41}
+              width={40}
+              height={40}
             />
           </StyledImage>
           <StyledInput
