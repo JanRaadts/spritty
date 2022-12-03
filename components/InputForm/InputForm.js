@@ -70,35 +70,39 @@ export default function InputForm({ onData, onResult }) {
               height={41}
             />
           </StyledImage>
-          <StyledTeilstreckeSec>
-            <StyledBackBtn>
-              <Image
-                onClick={closeTeilStrecke}
-                src={zurück}
-                alt="zurückBtn"
-                width={30}
-                height={30}
-              />
-            </StyledBackBtn>
 
+          <StyledTeilstreckeSec>
             <div>
               <StyledTitle>Teilstrecke hinzufügen</StyledTitle>
             </div>
             <StyledDiv>
-              <StyledInputTeilStr
-                placeholder="Name"
-                type="text"
-                name="NamePers"
-                required
-              ></StyledInputTeilStr>
-              <StyledInputTeilStr
-                placeholder="Anzahl km"
-                type="number"
-                name="KmTeilstrecke"
-                required
-              ></StyledInputTeilStr>
+              <StyledInputContainer>
+                <StyledInputTeilStr
+                  placeholder="Name"
+                  type="text"
+                  name="NamePers"
+                  required
+                ></StyledInputTeilStr>
+              </StyledInputContainer>
+              <StyledInputContainer>
+                <StyledInputTeilStr
+                  placeholder="Km"
+                  type="number"
+                  name="KmTeilstrecke"
+                  required
+                ></StyledInputTeilStr>
+              </StyledInputContainer>
             </StyledDiv>
           </StyledTeilstreckeSec>
+          <StyledBackBtn>
+            <Image
+              onClick={closeTeilStrecke}
+              src={zurück}
+              alt="zurückBtn"
+              width={30}
+              height={30}
+            />
+          </StyledBackBtn>
           <StyledInput
             placeholder="Anzahl Km"
             type="number"
@@ -221,7 +225,8 @@ const StyledInputTeilStr = styled.input`
   margin: 5px;
   padding: 20px;
   border-radius: 23px;
-  width: 200px;
+  width: 100%;
+
   border: 3px #11223e solid;
   font-size: 24px;
   text-align: center;
@@ -253,10 +258,20 @@ const StyledTitle = styled.p`
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
 `;
 
 const StyledBackBtn = styled.div`
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 30px;
+  top: 250px;
+`;
+
+const StyledInputContainer = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
