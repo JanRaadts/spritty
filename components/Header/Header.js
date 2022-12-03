@@ -14,5 +14,5 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10px;
+  height: 120px;
 `;
