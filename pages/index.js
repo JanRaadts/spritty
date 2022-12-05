@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import InputForm from "../components/InputForm/InputForm";
@@ -8,11 +9,18 @@ import Results from "../components/Results/Results";
 export default function HomePage() {
   const [resultOrCalc, setResultOrCalc] = useState(false);
 
-  const [calcResults, setCalcResults] = useState([]);
-  console.log(calcResults);
+  // const [calcResults, setCalcResults] = useState([]);
+  const [calcResults, setCalcResults] = useLocalStorageState("results", {
+    defaultValue: [],
+  });
 
   function handleData(data) {
     setCalcResults([...calcResults, data]);
+  }
+
+  async function handleDelete(id) {
+    console.log(id);
+    setCalcResults(calcResults.filter((result) => result.id !== id));
   }
 
   return (
@@ -29,6 +37,8 @@ export default function HomePage() {
             name={result.name}
             teilstrecke={result.teilstrecke}
             key={result.id}
+            id={result.id}
+            onDelete={handleDelete}
           />
         ))
       ) : (

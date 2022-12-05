@@ -8,8 +8,6 @@ import more from "/components/InputForm/moreBtn.png";
 export default function InputForm({ onData, onResult }) {
   const [moreBtn, setMoreBtn] = useState(false);
   const [dataInput, setDataInput] = useState();
-  console.log(moreBtn);
-  console.log(dataInput);
 
   function handleMehrBtn() {
     setMoreBtn(true);

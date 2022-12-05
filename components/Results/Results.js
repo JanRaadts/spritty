@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function Results({
   aPers,
@@ -7,20 +8,15 @@ export default function Results({
   verbrauch,
   name,
   teilstrecke,
+  onDelete,
   id,
 }) {
   const Personen = teilstrecke > 0 ? aPers - 1 : aPers;
-
   const Teilstrecke = teilstrecke > 0 ? teilstrecke : 0;
-
   const preisProKm = (verbrauch / 100) * pLiter;
-
   const einer = (preisProKm * teilstrecke) / aPers;
-
   const PreisEiner = teilstrecke > 0 ? einer : 0;
-
   const alle = (preisProKm * (aKm - Teilstrecke)) / Personen + PreisEiner;
-
   const resultEiner = einer.toFixed(2);
   const resultAlle = alle.toFixed(2);
 
@@ -34,6 +30,9 @@ export default function Results({
         ) : (
           <StyledText>{resultAlle}€ pro Person</StyledText>
         )}
+        <StyledDeleteBtn>
+          <AiOutlineCloseCircle size={25} onClick={() => onDelete(id)} />
+        </StyledDeleteBtn>
       </StyledResult>
     </>
   );
@@ -50,4 +49,10 @@ const StyledResult = styled.section`
 const StyledText = styled.p`
   font-size: 24px;
   text-align: center;
+`;
+
+const StyledDeleteBtn = styled.div`
+  position: fixed;
+  top: 10px;
+  right: 10px;
 `;
