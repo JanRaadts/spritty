@@ -22,7 +22,7 @@ export default function Footer({ onResult }) {
 const StyledFooter = styled.section`
   position: fixed;
   bottom: 0;
-  height: 80px;
+  height: 70px;
   background-color: #11223e;
   width: 100%;
   color: white;

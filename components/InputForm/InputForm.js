@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
 import Image from "next/image";
-import mehrBtn from "/components/InputForm/mehrBtn.png";
 import zurück from "/components/InputForm/delete.png";
 import more from "/components/InputForm/moreBtn.png";
 
@@ -121,6 +120,7 @@ export default function InputForm({ onData, onResult }) {
             placeholder="Verbrauch auf 100km"
             type="number"
             name="AnzVerbrauch"
+            step="0.1000"
             required
           ></StyledInput>
           <StyledButton type="submit">Calculate</StyledButton>
@@ -159,6 +159,7 @@ export default function InputForm({ onData, onResult }) {
             placeholder="Verbrauch auf 100km"
             type="number"
             name="AnzVerbrauch"
+            step="0.1000"
             required
           ></StyledInput>
           <StyledButton type="submit">Calculate</StyledButton>
