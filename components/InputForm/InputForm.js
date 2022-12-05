@@ -152,7 +152,7 @@ export default function InputForm({ onData, onResult }) {
             placeholder="Preis pro Liter"
             type="number"
             name="preis"
-            step="0.1000"
+            step="0.01"
             required
           ></StyledInput>
           <StyledInput
