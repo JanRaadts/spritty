@@ -52,7 +52,7 @@ const StyledText = styled.p`
 `;
 
 const StyledDeleteBtn = styled.div`
-  position: fixed;
+  position: absolute;
   top: 10px;
   right: 10px;
 `;
