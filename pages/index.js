@@ -5,6 +5,7 @@ import Header from "../components/Header/Header";
 import InputForm from "../components/InputForm/InputForm";
 import GlobalStyles from "../GlobalStyles";
 import Results from "../components/Results/Results";
+import Head from "next/head";
 
 export default function HomePage() {
   const [resultOrCalc, setResultOrCalc] = useState(false);
@@ -25,6 +26,9 @@ export default function HomePage() {
 
   return (
     <>
+      <Head>
+        <title>Spritty</title>
+      </Head>
       <GlobalStyles />
       <Header></Header>
       {resultOrCalc ? (
