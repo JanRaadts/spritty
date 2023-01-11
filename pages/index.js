@@ -51,8 +51,6 @@ export default function HomePage() {
       <br />
       <br />
       <br />
-      <br />
-      <br />
       <Footer onResult={setResultOrCalc} />
     </>
   );
